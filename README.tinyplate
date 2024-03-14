@@ -1,0 +1,28 @@
+# tinyplate
+
+<% for (const item of it) { %>
+<% if (item.title) { %>
+## <%= item.title %>
+
+<% } %>
+<% if (item.content) { %>
+<%= Array.isArray(item.content) ? item.content.map(i => `- ${i}`).join("\n") : item.content %>
+
+<% } %>
+<% if (item.code) { %>
+```javascript
+<%= item.code.replace(/\n.*$/, '') %>
+```
+
+<% } %>
+<% if (item.codes) { %>
+<% for (const code of item.codes) { %>
+### <%= code.title %>
+
+```javascript
+<%= code.code.replace(/\n.*$/, '') %>
+```
+
+<% } %>
+<% } %>
+<% } %>

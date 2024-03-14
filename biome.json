@@ -1,0 +1,13 @@
+{
+	"extends": ["./node_modules/@cstrlcs/configs/biome.json"],
+	"linter": {
+		"rules": {
+			"style": {
+				"noDefaultExport": "off"
+			},
+			"suspicious": {
+				"noShadowRestrictedNames": "off"
+			}
+		}
+	}
+}
