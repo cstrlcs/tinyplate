@@ -28,6 +28,7 @@ var v=/`|\\/g,w=/\\(`|\\)/g,y=/[\r\t\n]/g,z=/<%=([\s\S]+?)%>/g,F=/<%!([\s\S]+?)%
 
 ## Usage
 
+- Install with `npm i tinyplate.js`
 - `<% .. %>` - for code blocks
 - `<%= .. %>` - for interpolations
 - `<%! .. %>` - for interpolations with HTML encoding

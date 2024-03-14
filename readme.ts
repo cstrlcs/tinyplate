@@ -56,6 +56,7 @@ const context = [
 	{
 		title: "Usage",
 		content: [
+			"Install with `npm i tinyplate.js`",
 			"`<% .. %>` - for code blocks",
 			"`<%= .. %>` - for interpolations",
 			"`<%! .. %>` - for interpolations with HTML encoding",
