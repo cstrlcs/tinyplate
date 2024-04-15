@@ -1,4 +1,4 @@
-import tinyplate from "tinyplate";
+import tinyplate from "tinyplate.js";
 
 const TEMPLATE = `
 <div>

@@ -1,5 +1,5 @@
 {
-	"extends": ["./node_modules/@cstrlcs/configs/biome.json"],
+	"extends": ["@cstrlcs/configs/biome"],
 	"linter": {
 		"rules": {
 			"style": {
@@ -7,6 +7,9 @@
 			},
 			"suspicious": {
 				"noShadowRestrictedNames": "off"
+			},
+			"nursery": {
+				"noNodejsModules": "off"
 			}
 		}
 	}

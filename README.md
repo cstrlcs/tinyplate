@@ -40,7 +40,7 @@ You can check some examples here and in the `examples` folder. Even this README 
 ### Basic example
 
 ```javascript
-import tinyplate from "tinyplate";
+import tinyplate from "tinyplate.js";
 
 tinyplate("<li><%= it.name %></li>", { name: "tinyplate" });
 ```
@@ -48,8 +48,8 @@ tinyplate("<li><%= it.name %></li>", { name: "tinyplate" });
 ### Using a file
 
 ```javascript
-import tinyplate from "tinyplate";
-import fs from "fs";
+import fs from "node:fs";
+import tinyplate from "tinyplate.js";
 
 const template = fs.readFileSync("template.txt", "utf8");
 tinyplate(template, { name: "tinyplate" });
@@ -58,7 +58,7 @@ tinyplate(template, { name: "tinyplate" });
 ### Layout and partials
 
 ```javascript
-import tinyplate from "tinyplate";
+import tinyplate from "tinyplate.js";
 
 const LAYOUT_TEMPLATE = `
 <html>
@@ -73,16 +73,19 @@ const BODY_TEMPLATE = `
 <main>
   <h1><%! it.content %></h1>
 </main>
-`
+`;
 
 const context = { title: "tinyplate", content: "Hello, world!" };
-tinyplate(LAYOUT_TEMPLATE, { ...context, body: tinyplate(BODY_TEMPLATE, context) });
+tinyplate(LAYOUT_TEMPLATE, {
+	...context,
+	body: tinyplate(BODY_TEMPLATE, context),
+});
 ```
 
 ### Logic
 
 ```javascript
-import tinyplate from "tinyplate";
+import tinyplate from "tinyplate.js";
 
 const TEMPLATE = `
 <div>

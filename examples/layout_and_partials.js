@@ -1,4 +1,4 @@
-import tinyplate from "tinyplate";
+import tinyplate from "tinyplate.js";
 
 const LAYOUT_TEMPLATE = `
 <html>
@@ -13,7 +13,10 @@ const BODY_TEMPLATE = `
 <main>
   <h1><%! it.content %></h1>
 </main>
-`
+`;
 
 const context = { title: "tinyplate", content: "Hello, world!" };
-tinyplate(LAYOUT_TEMPLATE, { ...context, body: tinyplate(BODY_TEMPLATE, context) });
+tinyplate(LAYOUT_TEMPLATE, {
+	...context,
+	body: tinyplate(BODY_TEMPLATE, context),
+});

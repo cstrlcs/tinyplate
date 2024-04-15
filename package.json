@@ -1,38 +1,34 @@
 {
-  "name": "tinyplate.js",
-  "version": "0.0.1",
-  "author": "Lucas Castro <contact@lucascastro.dev>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cstrlcs/tinyplate.git"
-  },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "devDependencies": {
-    "@cstrlcs/configs": "latest",
-    "@types/bun": "latest",
-    "lefthook": "latest"
-  },
-  "bugs": "https://github.com/cstrlcs/tinyplate/issues",
-  "description": "A dead simple templating (<38 LOC) engine written in pure typescript.",
-  "files": [
-    "dist"
-  ],
-  "homepage": "https://github.com/cstrlcs/tinyplate#readme",
-  "keywords": [
-    "template",
-    "template engine",
-    "templating",
-    "small",
-    "fast"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "dev": "bun src/main.ts",
-    "build:js": "bun build ./src/index.ts --outdir ./dist --minify",
-    "build:ts": "cp index.d.ts dist/index.d.ts",
-    "build:readme": "bun readme.ts",
-    "build": "bun build:js && bun build:ts && bun build:readme",
-    "postinstall": "lefthook install"
-  }
+	"name": "tinyplate.js",
+	"version": "0.0.2",
+	"author": "Lucas Castro <contact@lucascastro.dev>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cstrlcs/tinyplate.git"
+	},
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"devDependencies": {
+		"@biomejs/biome": "latest",
+		"@cstrlcs/configs": "latest",
+		"@types/bun": "latest",
+		"lefthook": "latest",
+		"typescript": "latest"
+	},
+	"bugs": "https://github.com/cstrlcs/tinyplate/issues",
+	"description": "A dead simple templating (<38 LOC) engine written in pure typescript.",
+	"files": ["dist"],
+	"homepage": "https://github.com/cstrlcs/tinyplate#readme",
+	"keywords": ["template", "template engine", "templating", "small", "fast"],
+	"license": "MIT",
+	"scripts": {
+		"dev": "bun src/main.ts",
+		"build:js": "bun build ./src/index.ts --outdir ./dist --minify",
+		"build:ts": "cp index.d.ts dist/index.d.ts",
+		"build:readme": "bun readme.ts",
+		"build": "bun build:js && bun build:ts && bun build:readme",
+		"postinstall": "lefthook install",
+		"lint": "biome check .",
+		"lint:fix": "biome check . --apply-unsafe"
+	}
 }
