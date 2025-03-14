@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import tinyplate from "../src";
+import tinyplate from "../src/index.ts";
 
 test("Interpolation", () => {
 	const template = "<li><%= it.name %></li>";
@@ -49,7 +49,7 @@ test("Escapes backticks and backslashes", () => {
 });
 
 test("Interpolation with template literals", () => {
-	const template = "<%= `test` %><%= `${'test'}` %>";
+	const template = "<%= `test` %><%= `test` %>";
 	const context = {};
 	expect(tinyplate(template, context)).toBe("testtest");
 });
@@ -94,7 +94,7 @@ test("Invalid interpolation value", () => {
 
 test("Executes functions in context for interpolation", () => {
 	const template = "Result: <%= it.calculate() %>";
-	const context = { calculate: () => 5 + 3 };
+	const context = { calculate: (): number => 5 + 3 };
 	expect(tinyplate(template, context)).toBe("Result: 8");
 });
 

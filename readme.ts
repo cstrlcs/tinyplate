@@ -1,9 +1,12 @@
 import Bun from "bun";
-import tinyplate from "./src";
+import tinyplate from "./src/index.ts";
+
+const JS_EXTENSION = /\.js$/;
+const FIRST_LETTER = /^(.)/;
+const SPLIT = /\r\n|\r|\n/;
 
 const WARNING =
 	"<!-- This file is generated using tinyplate. Do not edit directly. -->\n";
-const SPLIT = /\r\n|\r|\n/;
 const EXAMPLES = [
 	"basic_example.js",
 	"using_a_file.js",
@@ -20,8 +23,8 @@ const examples = await Promise.all(
 	EXAMPLES.map(async (file) => ({
 		title: file
 			.replace(/_/g, " ")
-			.replace(/^(.)/, (c) => c.toUpperCase())
-			.replace(/\.js$/, ""),
+			.replace(FIRST_LETTER, (c) => c.toUpperCase())
+			.replace(JS_EXTENSION, ""),
 		code: await Bun.file(`examples/${file}`).text(),
 	})),
 );

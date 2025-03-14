@@ -7,10 +7,10 @@ const EVALUATE = /<%([\s\S]+?(\}?)+)%>/g;
 const NEW_LINE = /\n`;/g;
 
 export default function (template: string, context: object): string {
-	const unescape = (str: string) =>
+	const unescape = (str: string): string =>
 		str.replace(ESCAPED, "$1").replace(LINE_BREAKS, " ");
 
-	const encode = (str: string) => {
+	const encode = (str: string): string => {
 		const map = {
 			"&": "&#38;",
 			"<": "&#60;",

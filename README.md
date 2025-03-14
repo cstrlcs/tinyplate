@@ -3,7 +3,7 @@
 
 Tinyplate is a dead simple templating engine written in pure typescript. It is designed to be super fast, minimal, with zero dependencies and easy to use.
 
-It's tiny with only 37 lines of code and a size of 587 bytes when bundled.
+It's tiny with only 37 lines of code and a size of 583 bytes when bundled.
 
 ## Features
 
@@ -16,7 +16,7 @@ It's tiny with only 37 lines of code and a size of 587 bytes when bundled.
 The bundle even fits here:
 
 ```javascript
-var v=/`|\\/g,w=/\\(`|\\)/g,y=/[\r\t\n]/g,z=/<%=([\s\S]+?)%>/g,F=/<%!([\s\S]+?)%>/g,G=/<%([\s\S]+?(\}?)+)%>/g,H=/\n`;/g;function J(g,j){const b=(i)=>i.replace(w,"$1").replace(y," "),k=`const encode = ${((i)=>{const f={"&":"&#38;","<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","/":"&#47;"};return i.replace(/&(?!#?\w+;)|<|>|"|'|\//g,(q)=>f[q])}).toString()};let _=\`${g.replace(v,"\\$&").replace(z,(i,f)=>`\`+(${b(f)})+\``).replace(F,(i,f)=>`\`+encode(${b(f)})+\``).replace(G,(i,f)=>`\`;${b(f)};_+=\``).replace(H,"`;")}\`;return _;`;return new Function("it",k)(j)}export{J as default};
+var g=/`|\\/g,a=/\\(`|\\)/g,p=/[\r\t\n]/g,E=/<%=([\s\S]+?)%>/g,i=/<%!([\s\S]+?)%>/g,l=/<%([\s\S]+?(\}?)+)%>/g,_=/\n`;/g;function u(c,o){let t=(n)=>n.replace(a,"$1").replace(p," "),r=`const encode = ${((n)=>{let e={"&":"&#38;","<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","/":"&#47;"};return n.replace(/&(?!#?\w+;)|<|>|"|'|\//g,(s)=>e[s])}).toString()};let _=\`${c.replace(g,"\\$&").replace(E,(n,e)=>`\`+(${t(e)})+\``).replace(i,(n,e)=>`\`+encode(${t(e)})+\``).replace(l,(n,e)=>`\`;${t(e)};_+=\``).replace(_,"`;")}\`;return _;`;return new Function("it",r)(o)}export{u as default};
 ```
 
 ## Important Considerations ⚠️

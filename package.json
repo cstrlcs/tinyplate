@@ -1,6 +1,6 @@
 {
 	"name": "tinyplate.js",
-	"version": "0.0.2",
+	"version": "1.0.0",
 	"author": "Lucas Castro <contact@lucascastro.dev>",
 	"repository": {
 		"type": "git",
@@ -29,6 +29,6 @@
 		"build": "bun build:js && bun build:ts && bun build:readme",
 		"postinstall": "lefthook install",
 		"lint": "biome check .",
-		"lint:fix": "biome check . --apply-unsafe"
+		"lint:fix": "biome check . --write --unsafe"
 	}
 }

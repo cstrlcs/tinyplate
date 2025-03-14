@@ -5,11 +5,14 @@
 			"style": {
 				"noDefaultExport": "off"
 			},
+			"correctness": {
+				"noNodejsModules": "off"
+			},
 			"suspicious": {
 				"noShadowRestrictedNames": "off"
 			},
 			"nursery": {
-				"noNodejsModules": "off"
+				"noSecrets": "off"
 			}
 		}
 	}
