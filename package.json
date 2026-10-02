@@ -16,7 +16,7 @@
 		"typescript": "latest"
 	},
 	"bugs": "https://github.com/cstrlcs/tinyplate/issues",
-	"description": "A dead simple templating (<38 LOC) engine written in pure typescript.",
+	"description": "A dead simple templating (<17 LOC) engine written in pure typescript.",
 	"files": ["dist"],
 	"homepage": "https://github.com/cstrlcs/tinyplate#readme",
 	"keywords": ["template", "template engine", "templating", "small", "fast"],
