@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import tinyplate from "tinyplate.js";
+import interpolate from "@cstrlcs/interpolate";
 
 const template = fs.readFileSync("template.txt", "utf8");
-tinyplate(template, { name: "tinyplate" });
+interpolate(template, { name: "interpolate" });

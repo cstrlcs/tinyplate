@@ -1,4 +1,4 @@
-# tinyplate
+# interpolate
 
 <% for (const item of it) { %>
 <% if (item.title) { %>
