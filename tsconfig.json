@@ -1,10 +1,9 @@
 {
-	"extends": "@cstrlcs/configs/tsconfig",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["./src/*"]
-		}
-	},
-	"include": ["src"]
+  "extends": "@cstrlcs/configs/tsconfig/base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
 }

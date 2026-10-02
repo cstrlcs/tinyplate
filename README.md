@@ -3,7 +3,7 @@
 
 Tinyplate is a dead simple templating engine written in pure typescript. It is designed to be super fast, minimal, with zero dependencies and easy to use.
 
-It's tiny with only 17 lines of code and a size of 284 bytes when bundled.
+It's tiny with only 15 lines of code and a size of 284 bytes when bundled.
 
 ## Features
 
@@ -77,8 +77,8 @@ const BODY_TEMPLATE = `
 
 const context = { title: "tinyplate", content: "Hello, world!" };
 tinyplate(LAYOUT_TEMPLATE, {
-	...context,
-	body: tinyplate(BODY_TEMPLATE, context),
+  ...context,
+  body: tinyplate(BODY_TEMPLATE, context),
 });
 ```
 

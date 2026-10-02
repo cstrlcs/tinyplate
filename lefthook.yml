@@ -3,7 +3,7 @@ pre-commit:
     build:
       run: bun run build
     check:
-      glob: "*.{ts,json}"
-      run: bunx biome check --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+      glob: "*.{js,ts,mts,json}"
+      run: bun run lint
     test:
       run: bun test

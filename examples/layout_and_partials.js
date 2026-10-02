@@ -17,6 +17,6 @@ const BODY_TEMPLATE = `
 
 const context = { title: "tinyplate", content: "Hello, world!" };
 tinyplate(LAYOUT_TEMPLATE, {
-	...context,
-	body: tinyplate(BODY_TEMPLATE, context),
+  ...context,
+  body: tinyplate(BODY_TEMPLATE, context),
 });
