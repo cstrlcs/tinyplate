@@ -3,7 +3,7 @@
 
 Tinyplate is a dead simple templating engine written in pure typescript. It is designed to be super fast, minimal, with zero dependencies and easy to use.
 
-It's tiny with only 15 lines of code and a size of 284 bytes when bundled.
+It's tiny with only 20 lines of code and a size of 288 bytes when bundled.
 
 ## Features
 
@@ -16,7 +16,7 @@ It's tiny with only 15 lines of code and a size of 284 bytes when bundled.
 The bundle even fits here:
 
 ```javascript
-var i=(n)=>String(n).replace(/&(?!#?\w+;)|[<>"'/]/g,(t)=>`&#${t.charCodeAt(0)};`),s=(n,t)=>Function("it","e",`let _=\`${n.replace(/(\n?)<%([=!]?)([\s\S]+?)%>|[`\\]/g,($,g,r,e)=>e?r?`${g}\`+${r==="!"?"e":""}(${e})+\``:`\`;${e};_+=\``:`\\${$}`)}\`;return _`)(t,i);export{s as default};
+var e=(n)=>String(n).replace(/&(?!#?\w+;)|[<>"'/]/g,(t)=>`&#${t.charCodeAt(0)};`),T=(n,t,s,r)=>r?s?`${t}\`+${s==="!"?"e":""}(${r})+\``:`\`;${r};_+=\``:`\\${n}`,g=(n,t)=>Function("it","e",`let _=\`${n.replace(/(\n?)<%([=!]?)([\s\S]+?)%>|[`\\]/g,T)}\`;return _`)(t,e);export{g as default};
 ```
 
 ## Important Considerations ⚠️
