@@ -1,6 +1,6 @@
 {
   "name": "@cstrlcs/interpolate",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A dead simple templating (<21 LOC) engine written in pure typescript.",
   "keywords": [
     "fast",
