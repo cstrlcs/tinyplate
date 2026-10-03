@@ -1,9 +1,10 @@
-<!-- This file is generated using tinyplate. Do not edit directly. -->
-# tinyplate
+<!-- This file is generated using interpolate. Do not edit directly. -->
 
-Tinyplate is a dead simple templating engine written in pure typescript. It is designed to be super fast, minimal, with zero dependencies and easy to use.
+# interpolate
 
-It's tiny with only 37 lines of code and a size of 583 bytes when bundled.
+Interpolate is a dead simple templating engine written in pure typescript. It is designed to be super fast, minimal, with zero dependencies and easy to use.
+
+It's tiny with only 20 lines of code and a size of 288 bytes when bundled.
 
 ## Features
 
@@ -15,50 +16,51 @@ It's tiny with only 37 lines of code and a size of 583 bytes when bundled.
 
 The bundle even fits here:
 
+<!-- prettier-ignore -->
 ```javascript
-var g=/`|\\/g,a=/\\(`|\\)/g,p=/[\r\t\n]/g,E=/<%=([\s\S]+?)%>/g,i=/<%!([\s\S]+?)%>/g,l=/<%([\s\S]+?(\}?)+)%>/g,_=/\n`;/g;function u(c,o){let t=(n)=>n.replace(a,"$1").replace(p," "),r=`const encode = ${((n)=>{let e={"&":"&#38;","<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","/":"&#47;"};return n.replace(/&(?!#?\w+;)|<|>|"|'|\//g,(s)=>e[s])}).toString()};let _=\`${c.replace(g,"\\$&").replace(E,(n,e)=>`\`+(${t(e)})+\``).replace(i,(n,e)=>`\`+encode(${t(e)})+\``).replace(l,(n,e)=>`\`;${t(e)};_+=\``).replace(_,"`;")}\`;return _;`;return new Function("it",r)(o)}export{u as default};
+var e=(n)=>String(n).replace(/&(?!#?\w+;)|[<>"'/]/g,(t)=>`&#${t.charCodeAt(0)};`),T=(n,t,s,r)=>r?s?`${t}\`+${s==="!"?"e":""}(${r})+\``:`\`;${r};_+=\``:`\\${n}`,g=(n,t)=>Function("it","e",`let _=\`${n.replace(/(\n?)<%([=!]?)([\s\S]+?)%>|[`\\]/g,T)}\`;return _`)(t,e);export{g as default};
 ```
 
 ## Important Considerations ⚠️
 
-- Tinyplate is extremely minimal; it does not have any options or configurations.
+- Interpolate is extremely minimal; it does not have any options or configurations.
 - It allows arbitrary code execution in templates, which can be extremely powerful but also be dangerous. Do not use user input as part of the template.
 - Although it supports HTML encoding through `<%! .. %>` tags, the library is new and has not been fully tested against code injection. Use caution with untrusted input.
 - If you need more features out of the box, consider trying [doT](https://github.com/olado/doT) or [eta](https://eta.js.org/). Both are excellent tools that have inspired this library.
 
 ## Usage
 
-- Install with `npm i tinyplate.js`
+- Install with `npm i @cstrlcs/interpolate`
 - `<% .. %>` - for code blocks
 - `<%= .. %>` - for interpolations
 - `<%! .. %>` - for interpolations with HTML encoding
 
 ## Examples
 
-You can check some examples here and in the `examples` folder. Even this README is generated using tinyplate.
+You can check some examples here and in the `examples` folder. Even this README is generated using interpolate.
 
 ### Basic example
 
 ```javascript
-import tinyplate from "tinyplate.js";
+import interpolate from "@cstrlcs/interpolate";
 
-tinyplate("<li><%= it.name %></li>", { name: "tinyplate" });
+interpolate("<li><%= it.name %></li>", { name: "interpolate" });
 ```
 
 ### Using a file
 
 ```javascript
 import fs from "node:fs";
-import tinyplate from "tinyplate.js";
+import interpolate from "@cstrlcs/interpolate";
 
 const template = fs.readFileSync("template.txt", "utf8");
-tinyplate(template, { name: "tinyplate" });
+interpolate(template, { name: "interpolate" });
 ```
 
 ### Layout and partials
 
 ```javascript
-import tinyplate from "tinyplate.js";
+import interpolate from "@cstrlcs/interpolate";
 
 const LAYOUT_TEMPLATE = `
 <html>
@@ -75,17 +77,17 @@ const BODY_TEMPLATE = `
 </main>
 `;
 
-const context = { title: "tinyplate", content: "Hello, world!" };
-tinyplate(LAYOUT_TEMPLATE, {
-	...context,
-	body: tinyplate(BODY_TEMPLATE, context),
+const context = { title: "interpolate", content: "Hello, world!" };
+interpolate(LAYOUT_TEMPLATE, {
+  ...context,
+  body: interpolate(BODY_TEMPLATE, context),
 });
 ```
 
 ### Logic
 
 ```javascript
-import tinyplate from "tinyplate.js";
+import interpolate from "@cstrlcs/interpolate";
 
 const TEMPLATE = `
 <div>
@@ -102,11 +104,10 @@ const TEMPLATE = `
   <% } %>
 </div>`;
 
-tinyplate(TEMPLATE, { name: "tinyplate", amount: 5 });
+interpolate(TEMPLATE, { name: "interpolate", amount: 5 });
 ```
 
 ## Credits
 
-Tinyplate is heavily inspired by [doT](https://github.com/olado/doT) and [eta](https://eta.js.org/).
+Interpolate is heavily inspired by [doT](https://github.com/olado/doT) and [eta](https://eta.js.org/).
 Huge thanks to the creators of `doT` from where I borrowed the regexes and some of the logic. Also, a big shoutout to the creators of `eta` for inspiring the templating syntax.
-

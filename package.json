@@ -1,34 +1,48 @@
 {
-	"name": "tinyplate.js",
-	"version": "1.0.0",
-	"author": "Lucas Castro <contact@lucascastro.dev>",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/cstrlcs/tinyplate.git"
-	},
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"devDependencies": {
-		"@biomejs/biome": "latest",
-		"@cstrlcs/configs": "latest",
-		"@types/bun": "latest",
-		"lefthook": "latest",
-		"typescript": "latest"
-	},
-	"bugs": "https://github.com/cstrlcs/tinyplate/issues",
-	"description": "A dead simple templating (<38 LOC) engine written in pure typescript.",
-	"files": ["dist"],
-	"homepage": "https://github.com/cstrlcs/tinyplate#readme",
-	"keywords": ["template", "template engine", "templating", "small", "fast"],
-	"license": "MIT",
-	"scripts": {
-		"dev": "bun src/main.ts",
-		"build:js": "bun build ./src/index.ts --outdir ./dist --minify",
-		"build:ts": "cp index.d.ts dist/index.d.ts",
-		"build:readme": "bun readme.ts",
-		"build": "bun build:js && bun build:ts && bun build:readme",
-		"postinstall": "lefthook install",
-		"lint": "biome check .",
-		"lint:fix": "biome check . --write --unsafe"
-	}
+  "name": "@cstrlcs/interpolate",
+  "version": "1.0.0",
+  "description": "A dead simple templating (<21 LOC) engine written in pure typescript.",
+  "keywords": [
+    "fast",
+    "small",
+    "template",
+    "template engine",
+    "templating"
+  ],
+  "homepage": "https://github.com/cstrlcs/interpolate#readme",
+  "bugs": "https://github.com/cstrlcs/interpolate/issues",
+  "license": "MIT",
+  "author": "Lucas Castro <contact@lucascastro.dev>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cstrlcs/interpolate.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "bun src/main.ts",
+    "build:js": "bun build ./src/index.ts --outdir ./dist --minify",
+    "build:ts": "cp index.d.ts dist/index.d.ts",
+    "build:readme": "bun readme.ts",
+    "build": "bun build:js && bun build:ts && bun build:readme",
+    "postinstall": "lefthook install",
+    "lint": "oxlint --type-aware .",
+    "lint:fix": "oxlint --type-aware --fix; s=$?; oxfmt; exit $s"
+  },
+  "devDependencies": {
+    "@cstrlcs/configs": "^9.5.0",
+    "@types/bun": "^1.4.2",
+    "lefthook": "latest",
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0",
+    "oxlint-tsgolint": "^7.0.2003",
+    "typescript": "latest"
+  }
 }

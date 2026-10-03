@@ -1,4 +1,4 @@
-import tinyplate from "tinyplate.js";
+import interpolate from "@cstrlcs/interpolate";
 
 const LAYOUT_TEMPLATE = `
 <html>
@@ -15,8 +15,8 @@ const BODY_TEMPLATE = `
 </main>
 `;
 
-const context = { title: "tinyplate", content: "Hello, world!" };
-tinyplate(LAYOUT_TEMPLATE, {
-	...context,
-	body: tinyplate(BODY_TEMPLATE, context),
+const context = { title: "interpolate", content: "Hello, world!" };
+interpolate(LAYOUT_TEMPLATE, {
+  ...context,
+  body: interpolate(BODY_TEMPLATE, context),
 });

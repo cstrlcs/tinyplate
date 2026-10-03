@@ -1,3 +1,3 @@
-import tinyplate from "tinyplate.js";
+import interpolate from "@cstrlcs/interpolate";
 
-tinyplate("<li><%= it.name %></li>", { name: "tinyplate" });
+interpolate("<li><%= it.name %></li>", { name: "interpolate" });

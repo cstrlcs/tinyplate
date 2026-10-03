@@ -1,4 +1,4 @@
-import tinyplate from "tinyplate.js";
+import interpolate from "@cstrlcs/interpolate";
 
 const TEMPLATE = `
 <div>
@@ -15,4 +15,4 @@ const TEMPLATE = `
   <% } %>
 </div>`;
 
-tinyplate(TEMPLATE, { name: "tinyplate", amount: 5 });
+interpolate(TEMPLATE, { name: "interpolate", amount: 5 });

@@ -1,4 +1,4 @@
-# tinyplate
+# interpolate
 
 <% for (const item of it) { %>
 <% if (item.title) { %>
@@ -10,6 +10,7 @@
 
 <% } %>
 <% if (item.code) { %>
+<!-- prettier-ignore -->
 ```javascript
 <%= item.code.replace(/\n.*$/, '') %>
 ```
