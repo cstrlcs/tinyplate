@@ -1,0 +1,44 @@
+{
+  "name": "interpolate-vscode",
+  "displayName": "Interpolate",
+  "version": "0.1.0",
+  "description": "Syntax highlighting for interpolate templates",
+  "categories": [
+    "Programming Languages"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cstrlcs/interpolate.git",
+    "directory": "editors/vscode"
+  },
+  "publisher": "cstrlcs",
+  "contributes": {
+    "languages": [
+      {
+        "id": "interpolate",
+        "aliases": [
+          "Interpolate",
+          "interpolate"
+        ],
+        "extensions": [
+          ".interpolate"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "interpolate",
+        "scopeName": "text.interpolate",
+        "path": "./syntaxes/interpolate.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.javascript": "javascript"
+        }
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.50.0"
+  }
+}

@@ -1,6 +1,7 @@
 {
   "name": "@cstrlcs/interpolate",
   "version": "2.0.0",
+  "private": false,
   "description": "A dead simple templating (<21 LOC) engine written in pure typescript.",
   "keywords": [
     "fast",
@@ -37,12 +38,13 @@
     "lint:fix": "oxlint --type-aware --fix; s=$?; oxfmt; exit $s"
   },
   "devDependencies": {
-    "@cstrlcs/configs": "^9.5.0",
-    "@types/bun": "^1.4.2",
+    "@cstrlcs/configs": "9.5.2",
+    "@types/bun": "1.4.2",
     "lefthook": "latest",
-    "oxfmt": "^0.71.0",
-    "oxlint": "^1.86.0",
-    "oxlint-tsgolint": "^7.0.2003",
+    "oxfmt": "0.65.0",
+    "oxlint": "1.80.0",
+    "oxlint-tsgolint": "7.0.2001",
     "typescript": "latest"
-  }
+  },
+  "packageManager": "bun@1.4.0"
 }

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Interpolate",
+  "scopeName": "text.interpolate",
+  "patterns": [
+    {
+      "include": "#single-line-tag"
+    },
+    {
+      "include": "#multi-line-tag"
+    }
+  ],
+  "repository": {
+    "single-line-tag": {
+      "match": "(<%[=!]?)(.+?)(%>)",
+      "name": "meta.tag.interpolate",
+      "captures": {
+        "1": {
+          "name": "punctuation.section.embedded.begin.interpolate"
+        },
+        "2": {
+          "name": "meta.embedded.block.javascript",
+          "patterns": [
+            {
+              "include": "source.js"
+            }
+          ]
+        },
+        "3": {
+          "name": "punctuation.section.embedded.end.interpolate"
+        }
+      }
+    },
+    "multi-line-tag": {
+      "begin": "<%[=!]?",
+      "end": "%>",
+      "name": "meta.tag.interpolate",
+      "contentName": "meta.embedded.block.javascript",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.begin.interpolate"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.end.interpolate"
+        }
+      },
+      "patterns": [
+        {
+          "match": "(.+?)(?=%>)",
+          "captures": {
+            "1": {
+              "patterns": [
+                {
+                  "include": "source.js"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "match": "(.+)",
+          "captures": {
+            "1": {
+              "patterns": [
+                {
+                  "include": "source.js"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "include": "source.js"
+        }
+      ]
+    }
+  }
+}
