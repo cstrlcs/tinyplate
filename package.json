@@ -33,9 +33,13 @@
     "build:ts": "cp index.d.ts dist/index.d.ts",
     "build:readme": "bun readme.ts",
     "build": "bun build:js && bun build:ts && bun build:readme",
+    "release": "publi.sh",
+    "check": "bun run lint && bun run format:check && tsc --noEmit && bun run test",
+    "format:check": "oxfmt --check",
     "postinstall": "lefthook install",
     "lint": "oxlint --type-aware .",
-    "lint:fix": "oxlint --type-aware --fix; s=$?; oxfmt; exit $s"
+    "lint:fix": "oxlint --type-aware --fix; s=$?; oxfmt; exit $s",
+    "test": "bun test"
   },
   "devDependencies": {
     "@cstrlcs/configs": "9.5.2",

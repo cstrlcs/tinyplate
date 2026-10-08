@@ -1,0 +1,38 @@
+name: Validate
+description: Install dependencies, build, and run every repository check.
+
+inputs:
+  registry-url:
+    description: npm registry for setup-node to configure for publishing.
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - name: Install Bun
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: 1.4.0
+
+    - name: Install Node
+      uses: actions/setup-node@v7
+      with:
+        node-version: 24
+        registry-url: ${{ inputs.registry-url }}
+
+    - name: Install dependencies
+      shell: bash
+      run: bun install --frozen-lockfile
+
+    - name: Build
+      shell: bash
+      run: bun run build
+
+    - name: Verify sources unchanged
+      shell: bash
+      run: git diff --exit-code
+
+    - name: Check
+      shell: bash
+      run: bun run check
